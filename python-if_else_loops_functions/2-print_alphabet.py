@@ -1,5 +1,3 @@
 #!/usr/bin/python3
-i = 97
-while i <= 123: 
-    print(chr(i), end='')  # no newline after each print
-    i += 1
+for letter in range(97, 123):
+    print("{}".format(chr(letter)), end="")
