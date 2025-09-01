@@ -1,2 +1,5 @@
 #!/usr/bin/python3
-print(''.join(chr(i) for i in range(97, 123)))
+i = 97
+while i <= 123: 
+    print(chr(i), end='')  # no newline after each print
+    i += 1
