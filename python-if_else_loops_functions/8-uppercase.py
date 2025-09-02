@@ -6,4 +6,4 @@ def uppercase(str):
         else:
             result += char
     print(result)
-    
+    return(result)
