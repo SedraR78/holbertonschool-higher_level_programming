@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-for numberOne in range(0, 10):
-    for numberTwo in range(0, 10):
-        if numberOne != numberTwo and numberOne < numberTwo:
-            print(f"{numberOne}{numberTwo} , ", end="")
+for num in range(0, 100):
+    if 0 <= num < 10:
+        print(f"0{num},", end="")
+    else:
+        print(f"{num},", end="")
