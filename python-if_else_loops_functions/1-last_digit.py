@@ -10,9 +10,9 @@ sl = "\n"
 ldigit = abs(number) % 10
 
 if ldigit > 5:
-    print(f"{string1} {number} {string2} {ldigit} {string5} {sl}")
+    print(f"{string1} {number} {string2} {ldigit} {string5}")
 elif ldigit == 0:
-    print(f"{string1} {number} {string2} {ldigit} {string0} {sl}")
+    print(f"{string1} {number} {string2} {ldigit} {string0}")
 elif ldigit != 0 and ldigit < 6:
-    print(f"{string1} {number} {string2} {ldigit} {string6} {sl}")
+    print(f"{string1} {number} {string2} {ldigit} {string6}")
  
