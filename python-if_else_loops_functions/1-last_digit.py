@@ -6,12 +6,13 @@ string2 = 'is'
 string5 = 'and is greater than 5'
 string0 = 'and is 0 '
 string6 = 'and is less than 6 and not 0'
+sl = "\n"
 ldigit = abs(number) % 10
 
 if ldigit > 5:
-    print(f"{string1} {number} {string2} {ldigit} {string5}")
+    print(f"{string1} {number} {string2} {ldigit} {string5} {sl}")
 elif ldigit == 0:
-    print(f"{string1} {number} {string2} {ldigit} {string0}")
+    print(f"{string1} {number} {string2} {ldigit} {string0} {sl}")
 elif ldigit != 0 and ldigit < 6:
-    print(f"{string1} {number} {string2} {ldigit} {string6}")
+    print(f"{string1} {number} {string2} {ldigit} {string6} {sl}")
  
