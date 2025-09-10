@@ -16,6 +16,6 @@ elif ldigit == 0:
 elif ldigit != 0 and ldigit < 6:
     print(f"{string1} {number} {string2} {ldigit} {string6}")
 elif ldigit < 0:
-    print(f"{string1} {number} {minus} {string2} {ldigit} {string6}")
+    print(f"{string1} {number} {string2} {minus} {ldigit} {string6}")
 
  
