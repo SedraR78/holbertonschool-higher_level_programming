@@ -15,5 +15,7 @@ if ldigit > 5:
     print(f"{string1} {number} {string2} {ldigit_display} {string5}")
 elif ldigit == 0:
     print(f"{string1} {number} {string2} {ldigit_display} {string0}")
-else:  # ldigit < 6
+elif ldigit < 6 and ldigit > 0:
     print(f"{string1} {number} {string2} {ldigit_display} {string6}")
+elif ldigit < 0:
+    print(f"{string1} {number} {string2} {ldigit_display} {string6}") 
