@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def print_sorted_dictionary(a_dictionary):
     # : Retrieve and sort the keys
     sorted_keys = sorted(a_dictionary.keys())
