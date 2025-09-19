@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 """Class to define a rectangle by its width and height."""
 class Rectangle:
     
