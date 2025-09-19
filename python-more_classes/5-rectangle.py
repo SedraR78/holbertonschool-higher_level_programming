@@ -1,6 +1,7 @@
 
 """Class to define a rectangle by its width and height."""
 class Rectangle:
+    
     def __init__(self, width=0, height=0):
         """Initialize a new Rectangle instance with optional width and height."""
         self.width = width
