@@ -1,7 +1,7 @@
 class Rectangle:
     def __init__(self, width=0, height=0):
-        self.width = width
-        self.height = height
+        self.width = width  # This will call the setter
+        self.height = height  # This will call the setter
 
     @property
     def width(self):
@@ -42,4 +42,3 @@ class Rectangle:
 
     def __repr__(self):
         return f"Rectangle({self.width}, {self.height})"
-
