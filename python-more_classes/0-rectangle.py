@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """  class Rectangle """
 
-class Rectangle:
+class Rectangle :
     """Represents a square.
 
     This class currently has no properties or methods.
