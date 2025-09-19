@@ -1,7 +1,8 @@
+"""Class to define a rectangle by its width and height."""
 class Rectangle:
     def __init__(self, width=0, height=0):
         self.width = width  # This will call the setter
-        self.height = height  # This will call the setter
+        self.height = height  # Thiis will call the setter
 
     @property
     def width(self):
