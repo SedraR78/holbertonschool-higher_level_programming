@@ -9,5 +9,5 @@ Square = __import__('10-square').Square
 """create a subclasse Square of BaseGeometry """
 
 def __str__(self):
-    """Return a string representation of the rectangle."""
-    return f"[Square] {self.__size}/{self.__size}"
+        """Return a string representation of the rectangle."""
+        return f"[Square] {self.__size}/{self.__size}"
