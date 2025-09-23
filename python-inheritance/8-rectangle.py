@@ -5,14 +5,15 @@ Defines the Rectangle class that inherits from BaseGeometry.
 """
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+"""create a subclasse Rectangle of BaseGeometry """
 
 class Rectangle(BaseGeometry):
 
     def __init__(self, width, height):
-
-        # validate width
+        """ setting widht + height in private instance"""
+        
         self.integer_validator("width", width)
         self.__width = width
-        # validate height
+        
         self.integer_validator("height", height)
         self.__height = height
