@@ -1,4 +1,4 @@
-# Tests pour la classe MyList
+#!/usr/bin/python3
 
 Test 1:
 Entrée: my_list.append(1), my_list.append(4), my_list.append(2), my_list.append(3), my_list.append(5)
