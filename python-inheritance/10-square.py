@@ -20,6 +20,3 @@ class Square(Rectangle):
         """Return the area of the Square."""
         return self.__size * self.__size
 
-    def __str__(self):
-        """Return a string representation of the rectangle."""
-        return f"[Rectangle] {self.__size}/{self.__size}"
