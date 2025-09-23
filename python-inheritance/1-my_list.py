@@ -4,4 +4,5 @@ class MyList(list):
     """Create the class"""
     def print_sorted(self):
         """ Function that print a list of the instances of a given class """
-        print(sorted(self))
+        sort_list = sorted(self)
+        print(sort_list)
