@@ -17,5 +17,6 @@ class FlyMixin:
 
 
 class Dragon(SwimMixin, FlyMixin):
+    """Mixin"""
     def roar(self):
         print("The dragon roars!")
