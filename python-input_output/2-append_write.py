@@ -2,6 +2,6 @@
 
 def append_write(filename="", text=""):
 
-    with open (filename,'a' ,encoding='utf-8') as file:
-        content = file.write(text)
+    with open (filename,'a' ,encoding='utf-8') as f:
+        content = f.write(text)
         return content
