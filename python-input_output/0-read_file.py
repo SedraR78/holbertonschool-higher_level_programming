@@ -1,6 +1,7 @@
 #!usr/bin/python3
 
-class Reading():
-    def read_file(filename=""):
-        with open (filename, encoding='utf-8') as a_file:
-            content = filename.read()
+
+def read_file(filename=""):
+    with open (filename,'r' ,encoding='utf-8') as file:
+        content = file.read()
+    print(content, end='')
