@@ -15,3 +15,10 @@ class CustomObject:
 
         with open(filename, 'wb') as file:
             pickle.dump(data, file)
+
+    @classmethod 
+    def deserialize(cls, filename):
+        #filename as a parameter : 
+        with open(filename, 'rb') as file: 
+            instance = pickle.load(file)
+        return instance
