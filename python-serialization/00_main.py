@@ -1,15 +1,5 @@
 #!/usr/bin/env python3
-import pickle
-
-def serialize_and_save_to_file(data, filename):
-
-    with open(filename, 'wb') as file:
-        pickle.dump(data, file)
-
-def load_and_deserialize(filename):
-    with open(filename, 'rb') as file:
-        return pickle.load(file)
-
+from task_00_basic_serialization import load_and_deserialize, serialize_and_save_to_file
 
 # Sample data to be serialized
 data_to_serialize = {
