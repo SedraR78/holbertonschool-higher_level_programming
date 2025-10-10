@@ -23,10 +23,10 @@ class MyHandler(BaseHTTPRequestHandler):
             
             self.send_response(200)
             sample_data = {"name": "John", "age": 30, "city": "New York"}
-            json_data = json.dumps(sample_data).encode()
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            self.wfile.write(json_data)
+            
+            self.wfile.write(json.dumps(sample_data).encode())
         
         elif self.path == "/info":
             
