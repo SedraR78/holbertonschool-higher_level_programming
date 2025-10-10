@@ -2,6 +2,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
+PORT = 8000
+
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
@@ -10,7 +12,12 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/html")
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
-        
+        elif self.path == "/status":
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"OK")
+
         elif self.path == "/data":
             
             self.send_response(200)
@@ -32,9 +39,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            # ✅ Retourne un objet JSON au lieu d'un simple texte
-            error_data = {"error": "Endpoint not found"}
-            self.wfile.write(json.dumps(error_data).encode())
+            self.wfile.write(b'Endpoint not found')
 
 if __name__ == "__main__":
     server_address = ('', 8000) 
