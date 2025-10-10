@@ -29,7 +29,12 @@ class MyHandler(BaseHTTPRequestHandler):
         
         else:
 
-            self.send_error(404 , "Endpoint not found")
+            self.send_response(404)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            # ✅ Retourne un objet JSON au lieu d'un simple texte
+            error_data = {"error": "Endpoint not found"}
+            self.wfile.write(json.dumps(error_data).encode())
 
 if __name__ == "__main__":
     server_address = ('', 8000) 
