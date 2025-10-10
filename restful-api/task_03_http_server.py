@@ -29,14 +29,17 @@ class MyHandler(BaseHTTPRequestHandler):
         
         else:
             
+            """ self.send_error(404 , "Endpoint not found")"""
+
             self.send_response(404)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            error_data = {"message": "Endpoint not found"}
-            self.wfile.write(json.dumps(error_data).encode())
+
+            self.wfile.write(b"Endpoint not found")
 
 if __name__ == "__main__":
-    server_address = ('', 8000)  
+    server_address = ('', 8000) 
+    
     httpd = HTTPServer(server_address, MyHandler)
     print("Starting server on port 8000...")
     httpd.serve_forever()
