@@ -28,8 +28,6 @@ class MyHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(info_data).encode())
         
         else:
-            
-            """ self.send_error(404 , "Endpoint not found")"""
 
             self.send_response(404)
             self.send_header("Content-type", "application/json")
