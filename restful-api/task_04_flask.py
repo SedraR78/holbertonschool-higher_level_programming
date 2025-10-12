@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+
+"""
+Simple API using Python & Flask
+"""
+
 from flask import Flask, jsonify, request
 
 # Create a Flask application
@@ -83,4 +89,4 @@ def add_user():
 
 
 if __name__ == "__main__":
-    app.run(port=5001, debug=True)
+    app.run()
