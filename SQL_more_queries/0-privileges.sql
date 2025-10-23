@@ -1,13 +1,4 @@
--- Create users if they don't exist
-CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost';
-CREATE USER IF NOT EXISTS 'user_0d_2'@'localhost';
-
--- Grant privileges
-GRANT ALL PRIVILEGES ON *.* TO 'user_0d_1'@'localhost';
-GRANT ALL PRIVILEGES ON *.* TO 'user_0d_2'@'localhost';
-
--- Show grants for user_0d_1
+-- that lists all privileges of the MySQL users user_0d_1 and user_0d_2 on your server (in localhost).
 SHOW GRANTS FOR 'user_0d_1'@'localhost';
-
--- Show grants for user_0d_2
 SHOW GRANTS FOR 'user_0d_2'@'localhost';
+
