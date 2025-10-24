@@ -1,3 +1,6 @@
---  a script that creates the database hbtn_0d_2 and the user user_0d_2.
-CREATE USER IF NOT EXISTS 'user_0d_2'@'localhost' IDENTIFIED BY 'user_0d_2_pwd';
-GRANT SELECT ON 'hbtn_0d_2' TO 'user_0d_2'@'localhost';
+-- a script that creates the table force_name on your MySQL server.
+CREATE TABLE IF NOT EXISTS force_name (
+    id INT NOT NULL,
+    name VARCHAR(256)  NOT NULL
+);
+ 
