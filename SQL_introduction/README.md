@@ -1,120 +1,141 @@
-Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+<div align="center">
 
-General
-What's a database
-What's a relational database
-What does SQL stand for
-What's MySQL
-How to create a database in MySQL
-What does DDL and DML stand for
-How to CREATE or ALTER a table
-How to SELECT data from a table
-How to INSERT, UPDATE or DELETE data
-What are subqueries
-How to use MySQL functions
-Requirements
-General
-Allowed editors: vi, vim, emacs
-All your files will be executed on Ubuntu 22.04 LTS using MySQL 8.0 (version 8.0.25)
-All your files should end with a new line
-All your SQL queries should have a comment just before (i.e. syntax above)
-All your files should start by a comment describing the task
-All SQL keywords should be in uppercase (SELECT, WHERE…)
-A README.md file, at the root of the folder of the project, is mandatory
-The length of your files will be tested using wc
-More Info
-Comments for your SQL file:
-$ cat my_script.sql
--- 3 first students in the Batch ID=3
--- because Batch 3 is the best!
-SELECT id, name FROM students WHERE batch_id = 3 ORDER BY created_at DESC LIMIT 3;
-$
-Use the sandbox to run MySQL
-For Ubuntu 22.04 (Current image on CoD Platform)
-Ask for a container Ubuntu 22.04
-Update package list
-root@11240ca261c0413fb4bb893a37e90f3d-2377118072:~# apt update
-Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
-Hit:2 http://archive.ubuntu.com/ubuntu jammy InRelease
-Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
-Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
-...
-Install mysql-server package
-root@11240ca261c0413fb4bb893a37e90f3d-2377118072:~# apt install -y mysql-server
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-The following additional packages will be installed:
-...
-Check it was installed properly
-root@11240ca261c0413fb4bb893a37e90f3d-2377118072:~# mysql --version
-mysql  Ver 8.0.39-0ubuntu0.22.04.1 for Linux on x86_64 ((Ubuntu))
-Start Mysql Server service:
-root@11240ca261c0413fb4bb893a37e90f3d-2377118072:~# service mysql start
- * Starting MySQL database server mysqld                                                                                                                                 [ OK ]
-Check everything is ok by connecting to the server using the MySQL CLI via Linux Socket
-root@11240ca261c0413fb4bb893a37e90f3d-2377118072:~# mysql -uroot
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 10
-Server version: 8.0.39-0ubuntu0.22.04.1 (Ubuntu)
+# 🗄️ SQL Introduction
 
-Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Holberton](https://img.shields.io/badge/Holberton-School-FF0000?style=for-the-badge)
 
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
+*A complete introduction to SQL and relational databases*
 
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+</div>
 
-mysql> quit
-Bye
-For Ubuntu 20.04 Sandbox: (OLD IMAGE)
-In the container, credentials are root/root
+---
 
-Ask for container Ubuntu 20.04
-Connect via SSH
-OR connect via the Web terminal
-In the container, you should start MySQL before playing with it:
-$ service mysql start                                                   
- * Starting MySQL database server mysqld 
-$
-$ cat 0-list_databases.sql | mysql -uroot -p                               
-Database                                                                                   
-information_schema                                                                         
-mysql                                                                                      
-performance_schema                                                                         
-sys                      
-$
-In the container, credentials are root/root
+## 📖 What is this project about?
 
-Install MySQL 8.0 on Ubuntu 20.04 LTS
-In your computer, VM or WSL instance.
+This project is a hands-on introduction to **SQL** and **MySQL**. The goal is to understand how to interact with a relational database from scratch — creating databases and tables, inserting data, reading it, filtering it, modifying it, deleting it, and running calculations on it.
 
-This instructions may vary by distribution or version. Use google to find specific instructions for your version.
+Everything revolves around two tables: `first_table` and `second_table`, inside the database `hbtn_0c_0`.
 
-$ sudo apt update
-$ sudo apt install mysql-server
-...
-$ mysql --version
-mysql  Ver 8.0.25-0ubuntu0.20.04.1 for Linux on x86_64 ((Ubuntu))
-$
-Connect to your MySQL server:
+---
 
-$ sudo mysql
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 11
-Server version: 8.0.25-0ubuntu0.20.04.1 (Ubuntu)
+## 🚀 How to Run a Script
 
-Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+```bash
+cat script.sql | mysql -hlocalhost -uroot -p hbtn_0c_0
+```
 
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
+> ⚠️ The database name is **always passed as an argument** to the command — never hardcoded inside the SQL file. This way the same script works on any database.
 
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+---
 
-mysql>
-mysql> quit
-Bye
-$
+## 📂 Concepts Covered
+
+### 🏗️ 1. Managing Databases & Tables
+
+Before touching any data, you need to set up the structure first.
+
+| Action | SQL Statement |
+|--------|--------------|
+| List all databases | `SHOW DATABASES;` |
+| Create a database (safe) | `CREATE DATABASE IF NOT EXISTS hbtn_0c_0;` |
+| Delete a database | `DROP DATABASE hbtn_0c_0;` |
+| List all tables | `SHOW TABLES;` |
+| See full table structure | `SHOW CREATE TABLE first_table;` |
+| Create a table | `CREATE TABLE IF NOT EXISTS my_table (...);` |
+
+> 💡 `IF NOT EXISTS` prevents errors when running a script multiple times — the operation is simply skipped if it already exists.
+
+> 💡 `SHOW CREATE TABLE` is used instead of `DESCRIBE` or `EXPLAIN`, which are **forbidden** in this project.
+
+---
+
+### 🔍 2. Reading Data — SELECT
+
+The most used command in SQL. Fetches data based on specific criteria.
+
+```sql
+-- Read everything
+SELECT * FROM first_table;
+
+-- Pick specific columns
+SELECT score, name FROM second_table;
+
+-- Filter with a condition
+SELECT score, name FROM second_table WHERE score > 9;
+
+-- Sort results — DESC = highest to lowest, ASC = lowest to highest
+SELECT score, name FROM second_table ORDER BY score DESC;
+
+-- Exclude NULL and empty values
+SELECT score, name FROM second_table WHERE name IS NOT NULL AND name != '';
+
+-- Count matching records
+SELECT COUNT(*) FROM first_table WHERE id = 89;
+```
+
+> 💡 **`NULL` vs `''`** — `NULL` means the field was never filled in. `''` means it was filled in with nothing (empty string). Both need to be excluded for clean data.
+
+---
+
+### ✏️ 3. Writing Data — INSERT / UPDATE / DELETE
+
+```sql
+-- Insert a single row
+INSERT INTO first_table (id, name) VALUES (89, 'Best School');
+
+-- Insert multiple rows at once
+INSERT INTO second_table (id, name, score)
+VALUES (1, 'John', 10),
+       (2, 'Alex', 3),
+       (3, 'Bob', 14),
+       (4, 'George', 8);
+
+-- Update a value (without hardcoding the id)
+UPDATE second_table SET score = 10 WHERE name = 'Bob';
+
+-- Delete rows matching a condition
+DELETE FROM second_table WHERE score < 6;
+```
+
+> ⚠️ **Always use a `WHERE` clause with `DELETE`.** Without it, `DELETE FROM table` wipes the entire table instantly with no confirmation.
+
+> 💡 Using `WHERE name = 'Bob'` instead of `WHERE id = 3` avoids hardcoding a value that could change — this is the concept behind the *no cheating* task.
+
+---
+
+### 📊 4. Aggregating Data — COUNT / AVG / GROUP BY
+
+Used when you want statistics on the data rather than the raw rows.
+
+```sql
+-- Compute the average score
+SELECT AVG(score) AS average FROM second_table;
+
+-- Count records grouped by score, sorted by frequency
+SELECT score, COUNT(*) AS number
+FROM second_table
+GROUP BY score
+ORDER BY number DESC;
+```
+
+> 💡 `GROUP BY` groups rows that share the same value in a column.  
+> 💡 `COUNT(*)` counts how many rows are in each group.  
+> 💡 `AS` renames the output column — mandatory here because the checker verifies the **exact column name** (`average`, `number`).
+
+---
+
+## 📋 Project Rules
+
+- ✅ All SQL keywords in **UPPERCASE** (`SELECT`, `WHERE`, `INSERT`...)
+- ✅ Every file starts with a `--` comment describing what the script does
+- ✅ No use of `DESCRIBE` or `EXPLAIN`
+- ✅ Database name never hardcoded inside the scripts
+- ✅ All files end with a new line
+
+---
+
+## 👤 Author
+
+**BigSi** — Holberton School France
