@@ -1,4 +1,5 @@
-#!/usr/bin/node
-exports.add = function (a, b) {
+#!/usr/local/bin/node
+function add (a, b) {
   return a + b;
-};
+}
+module.exports.add = add;
