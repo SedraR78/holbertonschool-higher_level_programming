@@ -1,5 +1,5 @@
--- Creates table unique_id with id UNIQUE and DEFAULT 1
-CREATE TABLE IF NOT EXISTS unique_id (
-    id INT DEFAULT 1 UNIQUE,
+-- Creates table id_not_null with id DEFAULT 1
+CREATE TABLE IF NOT EXISTS id_not_null (
+    id INT DEFAULT 1,
     name VARCHAR(256)
 );
